@@ -1,13 +1,11 @@
-FROM python:3.9
+from python:3.9
 
-# specify the current wd
-WORKDIR /app
+WORKDIR /flask
 
-#copy current directory
-ADD . /app
+COPY . .
 
-# Use pip to install the project requirements
-RUN pip install -r requirements.txt
+RUN apt-get update
+RUN apt install libsndfile1 -y
+RUN pip install -r requirement.txt
 
-# Run the web server upon startup with eight threads 
-CMD ["uwsgi","app.ini"]
+CMD gunicorn --bind 0.0.0.0:5000 run:app
