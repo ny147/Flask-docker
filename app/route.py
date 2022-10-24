@@ -37,7 +37,7 @@ def book():
         audio_filestorage = list(audio_dict.values())[0]
 
         ## save
-        audio_filestorage.save(os.path.join(app.config["audio_upload"], audio_filestorage.filename))
+        # audio_filestorage.save(os.path.join(app.config["audio_upload"], audio_filestorage.filename))
         return {"Message" : "pass" , 
                 "audio_path" : f'{os.path.join(app.config["audio_upload"], audio_filestorage.filename)}'}
 
