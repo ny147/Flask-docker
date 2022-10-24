@@ -35,6 +35,8 @@ def book():
         audio = request.files
         audio_dict = audio.to_dict()
         audio_filestorage = list(audio_dict.values())[0]
+        return {"Message" : "get data" , 
+                "audio_filestorage" : f'{audio_filestorage}'}
 
         ## save
         audio_filestorage.save(os.path.join(app.config["audio_upload"], audio_filestorage.filename))
