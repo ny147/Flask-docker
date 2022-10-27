@@ -11,8 +11,8 @@ COPY . ./
 # Install production dependencies.
 RUN apt-get update
 RUN apt install libsndfile1 -y
-RUN  tar -xf ./app/model/infant_model/model.tar.gz -C ./app/model/infant_model/
-RUN  rm ./app/model/infant_model/model.tar.gz
+RUN tar -xf ./app/model/infant_model/model.tar.gz -C ./app/model/infant_model/
+RUN rm ./app/model/infant_model/model.tar.gz
 RUN pip install --no-cache-dir -r requirement.txt
 
 # Run the web service on container startup. Here we use the gunicorn
